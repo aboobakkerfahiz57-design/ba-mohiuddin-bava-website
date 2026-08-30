@@ -1,1 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="theme-color" content="#f8f5ef">
+<meta name="description" content="Official profile website of B. A. Mohiuddin Bava, former MLA of Mangalore City North.">
+
+<title>B. A. Mohiuddin Bava | Former MLA, Mangalore City North</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#f8f5ef;
+    --surface:#ffffff;
+    --surface-soft:#f1ede5;
+    --text:#1c241f;
+    --muted:#68706a;
+    --green:#173c2b;
+    --green-2:#24563f;
+    --gold:#b58a43;
+    --gold-light:#d9bc7e;
+    --line:rgba(23,60,43,.12);
+    --shadow:0 20px 60px rgba(22,38,29,.10);
+    --radius:22px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+body.modal-open{
+    overflow:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    transition:.35s ease;
+}
+
+.header.scrolled{
+    background:rgba(248,245,239,.94);
+    backdrop-filter:blur(18px);
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+}
+
+.nav{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:700;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+    border:1px solid rgba(181,138,67,.7);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+    font-family:"Playfair Display",serif;
+    font-size:17px;
+}
+
+.logo-text{
+    line-height:1.05;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:15px;
+    letter-spacing:.5px;
+}
+
+.logo-text span{
+    display:block;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:10px;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    position:relative;
+    font-size:13px;
+    font-weight:600;
+    color:#29322c;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-cta{
+    padding:11px 18px;
+    border-radius:50px;
+    background:var(--green);
+    color:white !important;
+}
+
+.nav-cta::after{
+    display:none;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--green);
+    color:white;
+    font-size:20px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+        linear-gradient(90deg,rgba(248,245,239,.97) 0%,rgba(248,245,239,.87) 31%,rgba(248,245,239,.18) 65%,rgba(248,245,239,.02) 100%),
+        url("bava-homepage-bg.jpg.jpeg") center center/cover no-repeat;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 10% 80%,rgba(181,138,67,.10),transparent 28%),
+        linear-gradient(180deg,rgba(255,255,255,.18),transparent 45%);
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:min(650px,100%);
+    padding-top:70px;
+}
+
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--gold);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2.2px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.eyebrow::before{
+    content:"";
+    width:36px;
+    height:2px;
+    background:var(--gold);
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(48px,7vw,88px);
+    line-height:.96;
+    letter-spacing:-2.5px;
+    color:var(--green);
+}
+
+.hero h1 span{
+    display:block;
+    color:#3d4c43;
+    font-size:.55em;
+    letter-spacing:-.5px;
+    margin-top:15px;
+}
+
+.hero-description{
+    margin-top:25px;
+    max-width:570px;
+    color:#4e5952;
+    font-size:17px;
+    line-height:1.75;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    border:0;
+    padding:14px 23px;
+    border-radius:50px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+    font-weight:700;
+    font-size:13px;
+    transition:.3s ease;
+}
+
+.btn-primary{
+    background:var(--green);
+    color:white;
+    box-shadow:0 12px 28px rgba(23,60,43,.20);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    background:#0e2b1e;
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(23,60,43,.16);
+    color:var(--green);
+    backdrop-filter:blur(10px);
+}
+
+.btn-secondary:hover{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+}
+
+.scroll-note{
+    margin-top:52px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:var(--muted);
+    font-size:11px;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+}
+
+.scroll-line{
+    width:45px;
+    height:1px;
+    background:var(--gold);
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section{
+    padding:105px 0;
+    position:relative;
+}
+
+.section-head{
+    max-width:720px;
+    margin-bottom:50px;
+}
+
+.section-kicker{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:clamp(38px,5vw,58px);
+    line-height:1.05;
+    letter-spacing:-1px;
+}
+
+.section-description{
+    color:var(--muted);
+    line-height:1.8;
+    margin-top:17px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    background:white;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.intro-card{
+    padding:42px;
+    border-radius:var(--radius);
+    background:var(--green);
+    color:white;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+}
+
+.intro-card::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:50%;
+    right:-90px;
+    bottom:-90px;
+}
+
+.intro-card .big-number{
+    font-family:"Playfair Display",serif;
+    font-size:85px;
+    line-height:.9;
+    color:var(--gold-light);
+}
+
+.intro-card h3{
+    margin-top:25px;
+    font-family:"Playfair Display",serif;
+    font-size:30px;
+}
+
+.intro-card p{
+    margin-top:15px;
+    color:rgba(255,255,255,.76);
+    line-height:1.75;
+}
+
+.intro-copy p{
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.signature{
+    margin-top:30px;
+    font-family:"Playfair Display",serif;
+    font-size:24px;
+    color:var(--green);
+}
+
+/* =========================
+   JOURNEY
+========================= */
+
+.journey{
+    background:var(--surface-soft);
+}
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:rgba(181,138,67,.4);
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:0 45px 60px 0;
+    position:relative;
+}
+
+.timeline-item:nth-child(even){
+    margin-left:50%;
+    padding:0 0 60px 45px;
+}
+
+.timeline-dot{
+    position:absolute;
+    top:3px;
+    right:-7px;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:var(--gold);
+    border:4px solid var(--surface-soft);
+    box-shadow:0 0 0 1px rgba(181,138,67,.35);
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-7px;
+    right:auto;
+}
+
+.timeline-year{
+    color:var(--gold);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.timeline-card{
+    margin-top:10px;
+    background:white;
+    border:1px solid var(--line);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(23,60,43,.04);
+}
+
+.timeline-card h3{
+    color:var(--green);
+    font-family:"Playfair Display",serif;
+    font-size:23px;
+}
+
+.timeline-card p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-top:8px;
+}
+
+/* =========================
+   FOCUS CARDS
+========================= */
+
+.focus{
+    background:white;
+}
+
+.focus-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.focus-card{
+    padding:32px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:#fff;
+    transition:.35s ease;
+}
+
+.focus-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    background:var(--surface-soft);
+    color:var(--gold);
+    font-size:23px;
+    margin-bottom:25px;
+}
+
+.focus-card h3{
+    color:var(--green);
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+}
+
+.focus-card p{
+    margin-top:10px;
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:#f4f0e8;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+}
+
+.gallery-item{
+    border:0;
+    padding:0;
+    overflow:hidden;
+    border-radius:16px;
+    height:260px;
+    background:#ddd;
+    position:relative;
+}
+
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(8){
+    grid-column:span 2;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.55s ease;
+}
+
+.gallery-item::after{
+    content:"View";
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    background:rgba(23,60,43,.50);
+    color:white;
+    font-weight:700;
+    letter-spacing:1px;
+    opacity:0;
+    transition:.35s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.06);
+}
+
+.gallery-item:hover::after{
+    opacity:1;
+}
+
+.gallery-help{
+    text-align:center;
+    margin-top:22px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(7,15,11,.93);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+.lightbox-image{
+    max-width:min(1100px,92vw);
+    max-height:84vh;
+    object-fit:contain;
+    border-radius:10px;
+    box-shadow:0 30px 100px rgba(0,0,0,.4);
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next{
+    position:absolute;
+    border:0;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    color:white;
+    font-size:22px;
+    backdrop-filter:blur(10px);
+}
+
+.lightbox-close{
+    top:25px;
+    right:25px;
+}
+
+.lightbox-prev{
+    left:25px;
+}
+
+.lightbox-next{
+    right:25px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    background:white;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:60px;
+}
+
+.contact-info{
+    padding:38px;
+    background:var(--green);
+    color:white;
+    border-radius:var(--radius);
+}
+
+.contact-info h3{
+    font-family:"Playfair Display",serif;
+    font-size:34px;
+}
+
+.contact-info p{
+    color:rgba(255,255,255,.72);
+    line-height:1.7;
+    margin-top:13px;
+}
+
+.contact-list{
+    list-style:none;
+    margin-top:30px;
+}
+
+.contact-list li{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    color:rgba(255,255,255,.85);
+}
+
+.contact-list strong{
+    display:block;
+    color:white;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:5px;
+}
+
+.form{
+    display:grid;
+    gap:16px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.field label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    color:var(--green);
+    margin-bottom:8px;
+}
+
+.field input,
+.field textarea{
+    width:100%;
+    border:1px solid rgba(23,60,43,.15);
+    background:#fbfaf7;
+    border-radius:13px;
+    padding:14px 15px;
+    outline:none;
+    color:var(--text);
+    transition:.25s;
+}
+
+.field textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.field input:focus,
+.field textarea:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 4px rgba(181,138,67,.08);
+}
+
+.form-note{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#10291d;
+    color:white;
+    padding:45px 0 25px;
+}
+
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.footer-brand{
+    font-family:"Playfair Display",serif;
+    font-size:27px;
+}
+
+.footer-brand small{
+    display:block;
+    font-family:"DM Sans",sans-serif;
+    color:rgba(255,255,255,.55);
+    font-size:11px;
+    letter-spacing:1px;
+    margin-top:6px;
+}
+
+.footer-links{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    color:rgba(255,255,255,.68);
+    font-size:13px;
+}
+
+.footer-bottom{
+    margin-top:35px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:rgba(255,255,255,.45);
+    font-size:11px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,120px);
+    background:#17231c;
+    color:white;
+    padding:13px 20px;
+    border-radius:50px;
+    font-size:13px;
+    z-index:3000;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+    transition:.35s ease;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .nav{
+        height:72px;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:72px;
+        left:0;
+        width:100%;
+        background:rgba(248,245,239,.98);
+        backdrop-filter:blur(18px);
+        padding:20px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+        transform:translateY(-140%);
+        transition:.35s ease;
+        box-shadow:0 20px 30px rgba(0,0,0,.08);
+    }
+
+    .nav-links.active{
+        transform:translateY(0);
+    }
+
+    .nav-links a{
+        display:block;
+        padding:15px;
+        border-radius:12px;
+    }
+
+    .nav-links a:hover{
+        background:#eee9df;
+    }
+
+    .nav-cta{
+        text-align:center;
+    }
+
+    .menu-btn{
+        display:grid;
+        place-items:center;
+    }
+
+    .hero{
+        min-height:850px;
+        align-items:flex-end;
+        background:
+            linear-gradient(180deg,rgba(248,245,239,.20) 0%,rgba(248,245,239,.40) 35%,rgba(248,245,239,.97) 73%,#f8f5ef 100%),
+            url("bava-homepage-bg.jpg.jpeg") 63% center/cover no-repeat;
+    }
+
+    .hero-content{
+        padding:0 0 60px;
+    }
+
+    .hero h1{
+        font-size:clamp(45px,13vw,70px);
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    section{
+        padding:75px 0;
+    }
+
+    .intro-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .focus-grid{
+        grid-template-columns:1fr;
+    }
+
+    .timeline::before{
+        left:7px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        margin:0;
+        padding:0 0 35px 35px;
+    }
+
+    .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:0;
+        right:auto;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .gallery-item,
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(8){
+        grid-column:span 1;
+        height:190px;
+    }
+
+    .gallery-item:nth-child(1){
+        grid-column:span 2;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .footer-top,
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .lightbox-prev{
+        left:12px;
+    }
+
+    .lightbox-next{
+        right:12px;
+    }
+}
+
+@media(max-width:500px){
+
+    .logo-text span{
+        display:none;
+    }
+
+    .logo-text strong{
+        font-size:13px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .intro-card{
+        padding:28px;
+    }
+
+    .section-title{
+        font-size:39px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header" id="header">
+    <div class="container nav">
+
+        <a href="#home" class="logo">
+            <div class="logo-mark">B</div>
+            <div class="logo-text">
+                <strong>B. A. Mohiuddin Bava</strong>
+                <span>Public Profile</span>
+            </div>
+        </a>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#work">Focus</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content reveal">
+
+            <div class="eyebrow">
+                Public Profile
+            </div>
+
+            <h1>
+                B. A.<br>
+                Mohiuddin Bava
+                <span>Former MLA · Mangalore City North</span>
+            </h1>
+
+            <p class="hero-description">
+                A personal profile documenting his public journey,
+                professional background, community engagement and
+                connection with the people of Mangaluru.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="scrollToSection('about')">
+                    Explore Profile →
+                </button>
+
+                <button class="btn btn-secondary" onclick="scrollToSection('gallery')">
+                    View Gallery
+                </button>
+            </div>
+
+            <div class="scroll-note">
+                <span class="scroll-line"></span>
+                Scroll to explore
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="intro" id="about">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">
+                A journey of public life and service.
+            </h2>
+            <p class="section-description">
+                An overview of B. A. Mohiuddin Bava's background,
+                public service and professional journey.
+            </p>
+        </div>
+
+        <div class="intro-grid">
+
+            <div class="intro-card reveal">
+                <div class="big-number">2013</div>
+                <h3>Entered the Karnataka Legislative Assembly</h3>
+                <p>
+                    B. A. Mohiuddin Bava represented the
+                    Mangalore City North constituency as a
+                    Member of the Legislative Assembly.
+                </p>
+            </div>
+
+            <div class="intro-copy reveal">
+
+                <p>
+                    B. A. Mohiuddin Bava is a businessman and
+                    public figure from Mangaluru, Karnataka.
+                    He served as the MLA representing Mangalore
+                    City North from 2013 to 2018.
+                </p>
+
+                <p>
+                    His public profile has included political
+                    activity, business interests, sports-related
+                    ventures and engagement with the community.
+                </p>
+
+                <p>
+                    This website is designed as a central place
+                    to present his biography, public journey,
+                    photographs, activities and contact information.
+                </p>
+
+                <div class="signature">
+                    B. A. Mohiuddin Bava
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     JOURNEY
+========================= -->
+
+<section class="journey" id="journey">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-kicker">Journey</div>
+            <h2 class="section-title">
+                From business to public life.
+            </h2>
+            <p class="section-description">
+                Key milestones can be updated here as the
+                official profile information is finalized.
+            </p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">BACKGROUND</div>
+                <div class="timeline-card">
+                    <h3>Business & Professional Life</h3>
+                    <p>
+                        Established a professional and business
+                        presence in coastal Karnataka before and
+                        alongside his public activities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2013</div>
+                <div class="timeline-card">
+                    <h3>Elected MLA</h3>
+                    <p>
+                        Elected as the Member of the Legislative
+                        Assembly from Mangalore City North.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2013 — 2018</div>
+                <div class="timeline-card">
+                    <h3>Legislative Assembly Tenure</h3>
+                    <p>
+                        Served as MLA of Mangalore City North
+                        during the 2013–2018 Assembly term.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">SPORTS</div>
+                <div class="timeline-card">
+                    <h3>Mangalore United</h3>
+                    <p>
+                        Associated with the Mangalore United
+                        cricket team in the Karnataka Premier League.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">PRESENT</div>
+                <div class="timeline-card">
+                    <h3>Community & Professional Activities</h3>
+                    <p>
+                        Continuing professional, business and
+                        community-related activities in coastal Karnataka.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     FOCUS / WORK
+========================= -->
+
+<section class="focus" id="work">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-kicker">Areas of Interest</div>
+            <h2 class="section-title">
+                Public life beyond one title.
+            </h2>
+            <p class="section-description">
+                These sections can be expanded with the client's
+                verified information later.
+            </p>
+        </div>
+
+        <div class="focus-grid">
+
+            <article class="focus-card reveal">
+                <div class="icon">◉</div>
+                <h3>Public Service</h3>
+                <p>
+                    Information about public activities,
+                    community programmes and constituency engagement.
+                </p>
+            </article>
+
+            <article class="focus-card reveal">
+                <div class="icon">◆</div>
+                <h3>Business</h3>
+                <p>
+                    Professional and entrepreneurial activities,
+                    ventures and business interests.
+                </p>
+            </article>
+
+            <article class="focus-card reveal">
+                <div class="icon">⚽</div>
+                <h3>Sports</h3>
+                <p>
+                    His association with sports and the
+                    Mangalore United cricket team.
+                </p>
+            </article>
+
+            <article class="focus-card reveal">
+                <div class="icon">✦</div>
+                <h3>Community</h3>
+                <p>
+                    Community engagement, social programmes
+                    and local activities.
+                </p>
+            </article>
+
+            <article class="focus-card reveal">
+                <div class="icon">⌂</div>
+                <h3>Mangaluru</h3>
+                <p>
+                    A profile connected to the people, places
+                    and public life of coastal Karnataka.
+                </p>
+            </article>
+
+            <article class="focus-card reveal">
+                <div class="icon">＋</div>
+                <h3>Future Updates</h3>
+                <p>
+                    New initiatives, announcements, events and
+                    verified updates can be added here.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery" id="gallery">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-kicker">Gallery</div>
+            <h2 class="section-title">
+                Moments from the journey.
+            </h2>
+            <p class="section-description">
+                A collection of photographs from public,
+                professional, community and personal occasions.
+            </p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+
+            <!--
+            IMPORTANT:
+            Rename your 15 uploaded photos to:
+
+            gallery-01.jpg
+            gallery-02.jpg
+            gallery-03.jpg
+            ...
+            gallery-15.jpg
+
+            Put them in the same GitHub folder as index.html.
+            -->
+
+        </div>
+
+        <p class="gallery-help">
+            Click any photograph to view it in full screen.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">
+                Stay connected.
+            </h2>
+            <p class="section-description">
+                Official contact details can be added here later.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-info reveal">
+
+                <h3>Connect with the office</h3>
+
+                <p>
+                    Phone, email, office address and social media
+                    information can be updated once provided.
+                </p>
+
+                <ul class="contact-list">
+
+                    <li>
+                        <strong>Phone</strong>
+                        <span id="phoneDisplay">To be updated</span>
+                    </li>
+
+                    <li>
+                        <strong>Email</strong>
+                        <span id="emailDisplay">To be updated</span>
+                    </li>
+
+                    <li>
+                        <strong>Location</strong>
+                        <span>Mangaluru, Karnataka</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <form class="form reveal" id="contactForm">
+
+                <div class="form-row">
+
+                    <div class="field">
+                        <label for="name">Your Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone Number</label>
+                        <input
+                            id="phone"
+                            type="tel"
+                            placeholder="Enter phone number"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="email">Email</label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label for="message">Message</label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    Send Message →
+                </button>
+
+                <p class="form-note">
+                    Contact submission is currently saved locally
+                    in the browser. A WhatsApp/email destination
+                    can be connected later.
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-top">
+
+            <div>
+                <div class="footer-brand">
+                    B. A. Mohiuddin Bava
+                </div>
+
+                <small>
+                    Former MLA · Mangalore City North
+                </small>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#journey">Journey</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year"></span> B. A. Mohiuddin Bava. All rights reserved.
+            </span>
+
+            <span>
+                Personal profile website
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div class="lightbox" id="lightbox">
+
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close"
+    >×</button>
+
+    <button
+        class="lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous"
+    >‹</button>
+
+    <img
+        class="lightbox-image"
+        id="lightboxImage"
+        src=""
+        alt="Gallery photograph"
+    >
+
+    <button
+        class="lightbox-next"
+        id="lightboxNext"
+        aria-label="Next"
+    >›</button>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* ==========================================
+   BASIC SETTINGS
+========================================== */
+
+const SITE = {
+
+    /*
+    Add the real phone number later.
+    Example:
+    phone: "+918088590273"
+    */
+    phone: "",
+
+    /*
+    Add the real email later.
+    Example:
+    email: "office@example.com"
+    */
+    email: "",
+
+    /*
+    Gallery photos.
+    Rename your 15 files to these names.
+    */
+    gallery: [
+        "gallery-01.jpg",
+        "gallery-02.jpg",
+        "gallery-03.jpg",
+        "gallery-04.jpg",
+        "gallery-05.jpg",
+        "gallery-06.jpg",
+        "gallery-07.jpg",
+        "gallery-08.jpg",
+        "gallery-09.jpg",
+        "gallery-10.jpg",
+        "gallery-11.jpg",
+        "gallery-12.jpg",
+        "gallery-13.jpg",
+        "gallery-14.jpg",
+        "gallery-15.jpg"
+    ]
+
+};
+
+
+/* ==========================================
+   HEADER SCROLL
+========================================== */
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 30){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+    menuBtn.textContent =
+        navLinks.classList.contains("active")
+        ? "×"
+        : "☰";
+
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+        menuBtn.textContent = "☰";
+
+    });
+
+});
+
+
+/* ==========================================
+   SMOOTH SCROLL
+========================================== */
+
+function scrollToSection(id){
+
+    const section = document.getElementById(id);
+
+    if(section){
+
+        section.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
+
+}
+
+
+/* ==========================================
+   GALLERY
+========================================== */
+
+const galleryGrid = document.getElementById("galleryGrid");
+
+SITE.gallery.forEach((file, index) => {
+
+    const button = document.createElement("button");
+
+    button.className = "gallery-item";
+
+    button.type = "button";
+
+    button.setAttribute(
+        "aria-label",
+        `Open gallery photograph ${index + 1}`
+    );
+
+    const img = document.createElement("img");
+
+    img.src = file;
+
+    img.alt = `B. A. Mohiuddin Bava gallery photograph ${index + 1}`;
+
+    img.loading = "lazy";
+
+    /*
+    If an image is missing, hide that gallery card
+    instead of showing a broken-image icon.
+    */
+
+    img.onerror = function(){
+
+        button.style.display = "none";
+
+    };
+
+    button.appendChild(img);
+
+    button.addEventListener("click", () => {
+
+        openLightbox(index);
+
+    });
+
+    galleryGrid.appendChild(button);
+
+});
+
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+
+let currentImage = 0;
+
+
+function openLightbox(index){
+
+    currentImage = index;
+
+    lightboxImage.src = SITE.gallery[currentImage];
+
+    lightbox.classList.add("active");
+
+    document.body.classList.add("modal-open");
+
+}
+
+
+function closeLightbox(){
+
+    lightbox.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+function changeImage(direction){
+
+    currentImage += direction;
+
+    if(currentImage < 0){
+        currentImage = SITE.gallery.length - 1;
+    }
+
+    if(currentImage >= SITE.gallery.length){
+        currentImage = 0;
+    }
+
+    lightboxImage.src = SITE.gallery[currentImage];
+
+}
+
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+lightboxPrev.addEventListener("click", () => {
+    changeImage(-1);
+});
+
+lightboxNext.addEventListener("click", () => {
+    changeImage(1);
+});
+
+
+lightbox.addEventListener("click", (event) => {
+
+    if(event.target === lightbox){
+        closeLightbox();
+    }
+
+});
+
+
+document.addEventListener("keydown", (event) => {
+
+    if(!lightbox.classList.contains("active")){
+        return;
+    }
+
+    if(event.key === "Escape"){
+        closeLightbox();
+    }
+
+    if(event.key === "ArrowLeft"){
+        changeImage(-1);
+    }
+
+    if(event.key === "ArrowRight"){
+        changeImage(1);
+    }
+
+});
+
+
+/* ==========================================
+   TOUCH SWIPE FOR GALLERY
+========================================== */
+
+let touchStartX = 0;
+
+lightbox.addEventListener("touchstart", event => {
+
+    touchStartX = event.changedTouches[0].screenX;
+
+});
+
+
+lightbox.addEventListener("touchend", event => {
+
+    const touchEndX = event.changedTouches[0].screenX;
+
+    const difference = touchStartX - touchEndX;
+
+    if(Math.abs(difference) < 50){
+        return;
+    }
+
+    if(difference > 0){
+        changeImage(1);
+    }else{
+        changeImage(-1);
+    }
+
+});
+
+
+/* ==========================================
+   CONTACT FORM
+========================================== */
+
+const contactForm = document.getElementById("contactForm");
+
+
+contactForm.addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if(!name || !phone || !message){
+
+        showToast("Please complete the required fields.");
+
+        return;
+
+    }
+
+
+    const submission = {
+
+        name,
+        phone,
+        email,
+        message,
+        date:new Date().toISOString()
+
+    };
+
+
+    /*
+    Save locally for now.
+    Later we can connect this to:
+    WhatsApp
+    Email
+    Google Sheets
+    Formspree
+    Firebase
+    Your own backend
+    */
+
+    const existing =
+        JSON.parse(
+            localStorage.getItem("bava_contact_messages") || "[]"
+        );
+
+    existing.push(submission);
+
+    localStorage.setItem(
+        "bava_contact_messages",
+        JSON.stringify(existing)
+    );
+
+
+    /*
+    If an email is added in SITE.email,
+    the form will automatically open
+    the user's email application.
+    */
+
+    if(SITE.email){
+
+        const subject =
+            encodeURIComponent(
+                "Website Contact - " + name
+            );
+
+        const body =
+            encodeURIComponent(
+`Name: ${name}
+
+Phone: ${phone}
+
+Email: ${email}
+
+Message:
+${message}`
+            );
+
+        window.location.href =
+            `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+
+    }else{
+
+        showToast(
+            "Message saved. Official contact details can be connected later."
+        );
+
+    }
+
+
+    contactForm.reset();
+
+});
+
+
+/* ==========================================
+   TOAST MESSAGE
+========================================== */
+
+const toast = document.getElementById("toast");
+
+let toastTimer;
+
+
+function showToast(message){
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },3500);
+
+}
+
+
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* ==========================================
+   FOOTER YEAR
+========================================== */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* ==========================================
+   PHONE / EMAIL SETTINGS
+========================================== */
+
+if(SITE.phone){
+
+    const phoneDisplay =
+        document.getElementById("phoneDisplay");
+
+    phoneDisplay.innerHTML =
+        `<a href="tel:${SITE.phone}">${SITE.phone}</a>`;
+
+}
+
+
+if(SITE.email){
+
+    const emailDisplay =
+        document.getElementById("emailDisplay");
+
+    emailDisplay.innerHTML =
+        `<a href="mailto:${SITE.email}">${SITE.email}</a>`;
+
+}
+
+</script>
+
+</body>
+</html>
